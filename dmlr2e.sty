@@ -250,7 +250,14 @@
   \def\email{\hfill\small\sc}%
   \def\name{\normalsize\bf}%
   \def\AND{\@endauthor\rm\hss \vskip \interauthorskip \@startauthor}
-  \@startauthor \@author \\ \\ {\bf Reviewed on OpenReview:} \openreview\@endauthor}
+  \@startauthor \@author
+  % wrap the openreview link in if to hide it if "preprint" option is enabled
+  \if@preprint
+  % do nothing
+  \else
+  \\ \\ {\bf Reviewed on OpenReview:} \openreview
+  \fi
+  @endauthor}
   \vskip \aftermaketitskip
   \if@preprint
   \else
